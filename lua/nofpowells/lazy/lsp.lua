@@ -13,7 +13,6 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
     },
-
     config = function()
         require("conform").setup({
             formatters_by_ft = {
@@ -35,6 +34,8 @@ return {
                 "lua_ls",
                 "angularls",
                 "gopls",
+                "ts_ls",
+                "eslint",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -68,12 +69,24 @@ return {
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
-            mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+            mapping = {
+                ["<C-n>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item(cmp_select)
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+                ["<C-p>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item(cmp_select)
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+                ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
-            }),
+            },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
