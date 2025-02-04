@@ -98,6 +98,8 @@ vim.opt.colorcolumn = "80"               -- Show column marker
 | `<leader>vrr` | Show references |
 | `<leader>vrn` | Rename |
 | `<leader>f` | Format buffer |
+| `<C-n>` | Next completion item |
+| `<C-p>` | Previous completion item |
 
 ### Git Operations
 | Keybind | Action |
@@ -107,6 +109,23 @@ vim.opt.colorcolumn = "80"               -- Show column marker
 | `<leader>P` | Git pull --rebase |
 | `gu` | Diffget from left |
 | `gh` | Diffget from right |
+
+### Git Signs
+| Keybind | Action |
+|---------|--------|
+| `]c` | Next Git hunk |
+| `[c` | Previous Git hunk |
+| `<leader>hs` | Stage hunk |
+| `<leader>hr` | Reset hunk |
+| `<leader>hu` | Undo stage hunk |
+| `<leader>hS` | Stage buffer |
+| `<leader>hR` | Reset buffer |
+| `<leader>hp` | Preview hunk |
+| `<leader>hb` | Blame line |
+| `<leader>tb` | Toggle line blame |
+| `<leader>hd` | Diff against index |
+| `<leader>td` | Toggle deleted |
+| `ih` | Select git hunk (visual) |
 
 ### Harpoon Navigation
 | Keybind | Action |
@@ -124,8 +143,9 @@ vim.opt.colorcolumn = "80"               -- Show column marker
 | `<leader>y` | Yank to system clipboard |
 | `<leader>d` | Delete without copying |
 | `<leader>s` | Search and replace word under cursor |
+| `<leader>s` | Search and replace word under cursor |
 | `<leader>x` | Make current file executable |
-
+| `Q` | Start/stop macro recording |
 ### Utility Features
 | Keybind | Action |
 |---------|--------|
@@ -133,7 +153,25 @@ vim.opt.colorcolumn = "80"               -- Show column marker
 | `<leader>tt` | Toggle trouble |
 | `[t/]t` | Navigate trouble list |
 | `<leader>zz` | Toggle Zen mode (90 columns) |
-| `<leader>zZ` | Toggle minimal Zen mode (80 columns) |
+
+### CopilotChat Commands
+| Keybind | Action |
+|---------|--------|
+| `<leader>ap` | Show prompt actions with telescope |
+| `<leader>ae` | Explain code |
+| `<leader>at` | Generate tests |
+| `<leader>ar` | Review code |
+| `<leader>aR` | Refactor code |
+| `<leader>an` | Suggest better naming |
+| `<leader>av` | Open chat in vertical split |
+| `<leader>ax` | Inline chat |
+| `<leader>ai` | Ask custom input |
+| `<leader>am` | Generate commit message |
+| `<leader>aq` | Quick chat |
+| `<leader>af` | Fix current issue |
+| `<leader>al` | Clear chat history |
+| `<leader>a?` | Select models |
+| `<leader>aa` | Select agents |
 
 ## Plugin Configurations
 
